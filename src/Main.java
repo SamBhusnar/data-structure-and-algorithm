@@ -1,3 +1,4 @@
+import Queue.CircularQueue;
 import Queue.LinearQueue;
 import stack.*;
 
@@ -16,8 +17,9 @@ public class Main   {
         // evaluate postfix
 //        Evaluation.evaluatePostfixExpression(); // evaluate postfix
         // ------------------- queue data structure -------------------
-        LinearQueue.eventDrivenProgram();
-
+//        LinearQueue.eventDrivenProgram();
+//       circular queue
+        CircularQueue.eventDrivenProgram();
 
 
 
