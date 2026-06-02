@@ -9,6 +9,8 @@ public class Main   {
         // infix to prefix
 //        InfixToPrefix.infixToPrefix(); // infix to prefix
         // matching parenthesis
-        MatchingParenthesis.checkExpressionIsValid();
+//        MatchingParenthesis.checkExpressionIsValid(); // matching parenthesis
+        // evaluate postfix
+        Evaluation.evaluatePostfixExpression(); // evaluate postfix
     }
 }
