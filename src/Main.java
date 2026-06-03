@@ -19,7 +19,8 @@ public class Main   {
         // ------------------- queue data structure -------------------
 //        LinearQueue.eventDrivenProgram();
 //       circular queue
-        CircularQueue.eventDrivenProgram();
+//        CircularQueue.eventDrivenProgram();
+//    dequeue--->             ird
 
 
 
