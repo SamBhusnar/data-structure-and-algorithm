@@ -1,3 +1,4 @@
+import LinkedList.SinglyLinearLinkedList;
 import Queue.CircularQueue;
 import Queue.LinearQueue;
 import stack.*;
@@ -21,8 +22,9 @@ public class Main   {
 //       circular queue
 //        CircularQueue.eventDrivenProgram();
 //    dequeue--->             ird
+//---------------------- Linked list-------------------------
 
-
+        SinglyLinearLinkedList.eventDrivenProgram();
 
     }
 }
