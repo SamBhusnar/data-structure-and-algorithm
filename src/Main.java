@@ -1,9 +1,9 @@
+import LinkedList.DoublyCircularLinkedList;
+import LinkedList.DoublyLinearLinkedList;
+import LinkedList.SinglyCircularLinkedList;
 import LinkedList.SinglyLinearLinkedList;
-import Queue.CircularQueue;
-import Queue.LinearQueue;
-import stack.*;
 
-public class Main   {
+public class Main {
     public static void main(String[] args) {
         // --------------------array data structure--------------------
 //         ArrayDS.eventDrivenProgram(); // array
@@ -23,8 +23,14 @@ public class Main   {
 //        CircularQueue.eventDrivenProgram();
 //    dequeue--->             ird
 //---------------------- Linked list-------------------------
-
-        SinglyLinearLinkedList.eventDrivenProgram();
+// singly linear linked list
+//        SinglyLinearLinkedList.eventDrivenProgram();
+// doubly linear linked list
+//        DoublyLinearLinkedList.eventDrivenProgram();
+        // singly circular linked list
+//        SinglyCircularLinkedList.eventDrivenProgram();
+    // doubly circular linked list
+        DoublyCircularLinkedList.eventDrivenProgram();
 
     }
 }

@@ -2,188 +2,214 @@ package LinkedList;
 
 import java.util.Scanner;
 
-public class SinglyLinearLinkedList {
+class Node {
     public int info;
-    public static SinglyLinearLinkedList list;
-    public SinglyLinearLinkedList next;
+    public Node next;
+    public Node prev;
+}
 
-    // inserting beginning of linked list
-    public void ins_beginning(int info) {
-        SinglyLinearLinkedList p, q;
+public class DoublyLinearLinkedList {
+    public static Node list;
+
+    public void ins_beginning(int info) { // only intended to insert element at the beginning of linked list
+        Node p, q;
         p = list;
-        if (p == null) {// if linkedList is empty
-            p = new SinglyLinearLinkedList();// new LinkedList is created
+        if (p == null) {
+            // create new node
+            p = new Node();
             p.info = info;
             p.next = null;
+            p.prev = null;
             list = p;
         } else {
-            q = new SinglyLinearLinkedList();// new LinkedList is created
+            // if node already exists then put newly created node at the beginning of list
+            q = new Node();
             q.info = info;
             q.next = p;
+            q.prev = null;
+            p.prev = q;
             list = q;
         }
-
     }
 
     public void ins_end(int info) {
-        SinglyLinearLinkedList p, q;
+        Node p, q;
         p = list;
-        if (p == null) { // if linkedList is empty
-            p = new SinglyLinearLinkedList();// new LinkedList is created
+        if (p == null) { // if list is empty
+            p = new Node();
             p.info = info;
             p.next = null;
+            p.prev = null;
             list = p;
-        } else { // if linkedList is not empty
-
-            while (p.next != null) {// traverse to the end of the linkedList
+        } else {
+            while (p.next != null) {
                 p = p.next;
             }
-            q = new SinglyLinearLinkedList();
+            q = new Node();
             q.info = info;
             q.next = null;
-            p.next = q;// insert at the end
+            q.prev = p;
+            p.next = q;
         }
     }
 
+
     public void ins_between(int info, int after) {
-        SinglyLinearLinkedList p, q;
+        Node p, q;
         p = list;
-        if (p == null || p.next == null) {
+        if (p == null || (p.next == null && p.prev == null)) {
             System.out.println("Insert between not possible");
         } else {
+            // This method only intended to insert element between two nodes
             while (p.next != null) {
-                if (after == p.info) {
-                    q = new SinglyLinearLinkedList();
+                if (p.info == after) {
+                    q = new Node();
                     q.info = info;
                     q.next = p.next;
+                    q.prev = p;
+                    p.next.prev = q;
                     p.next = q;
                     break;
                 }
                 p = p.next;
             }
+
         }
     }
 
     public int rem_beginning() {
-        int n;
-        SinglyLinearLinkedList p;
+
+        Node p, q;
         p = list;
         if (p == null) {
             System.out.println("List is empty");
             return -1;
-        } else if (p.next == null) {
-            n = p.info;
+        } else if (p.next == null && p.prev == null) {
             list = null;
-            return n;
+            return p.info;
         } else {
-            n = p.info;
-            p = p.next;
-            list = p;
-            return n;
+            q = p.next;
+            q.prev = null;
+            list = q;
+            return p.info;
         }
+
+
     }
 
     public int rem_end() {
+
         int n;
-        SinglyLinearLinkedList p, temp;
+        Node p, temp;
         p = list;
         if (p == null) {
-            System.out.println("List is empty");
+            System.out.println("list is empty");
             return -1;
-        } else if (p.next == null) {// if list has only one element
-            n = p.info;
+        } else if (p.next == null && p.prev == null) {
             list = null;
-            return n;
-        } else {// if list has more than one element
-
-            while (p.next.next != null) {
+            return p.info;
+        } else {
+            while (p.next.next != null) { // traverse to second last node
                 p = p.next;
             }
             temp = p.next;
             p.next = null;
             return temp.info;
-
         }
+
     }
 
     public int rem_between(int after) {
-        int n;
-        SinglyLinearLinkedList p, temp;
+        // this method only intended to remove element between two nodes
+        // if you try to remove last element using this method then it produce null pointer exception
+        Node p, temp;
         p = list;
         if (p == null) {
             System.out.println("list is empty");
-        } else if (p.next == null || p.next.next == null) {
+            return -1;
+        } else if ((p.next == null && p.prev == null) || (p.next.next == null && p.prev == null)) {
             System.out.println("Remove between not possible");
+            return -1;
         } else {
             while (p.next != null) {
                 if (p.info == after) {
                     temp = p.next;
                     p.next = temp.next;
+                    p.next.prev = p;
                     return temp.info;
                 }
                 p = p.next;
             }
-
+            return -1;
         }
-        return -1;
     }
 
-    public void search(int info) {
-        int f = 0;
-        SinglyLinearLinkedList p;
+    public void search(int srch) {
+        Node p;
         p = list;
+        int t=0;
+
         while (p != null) {
-            if (p.info == info) {
-                f = 1;
+            if (p.info == srch) {
+                t=1;
                 break;
             }
             p = p.next;
         }
-        if (f == 1) {
+        if(t==1){
             System.out.println("Node is found");
-        } else {
+        }else{
             System.out.println("Node is not found");
         }
     }
 
     public void count() {
         int cnt = 0;
-        SinglyLinearLinkedList p;
+        Node p;
         p = list;
         while (p != null) {
             cnt++;
             p = p.next;
         }
-        System.out.println("Total number of Nodes in Linked list:" + cnt);
+        System.out.println("Total number of nodes in linked list : " + cnt);
+
     }
 
     public void display() {
-        SinglyLinearLinkedList p;
+        Node p;
         p = list;
-        System.out.print("[");
-        while (p != null) {
-            System.out.print(p.info + ",");
-            p = p.next;
+        if (p == null) {
+            System.out.println("list is empty");
+        } else {
+            System.out.print("[");
+            while (p != null) {
+                System.out.print(p.info + ", ");
+                p = p.next;
+            }
+            System.out.println("]");
         }
-        System.out.println("]");
     }
 
     public void reverse() {
-        SinglyLinearLinkedList t1, t2 = null, t3 = null;
+        Node t1, t2 = null, t3 = null;
         t1 = list;
         while (t1 != null) {
             t2 = t1.next;
             t1.next = t3;
+            t1.prev = t2;
             t3 = t1;
             t1 = t2;
         }
         list = t3;
         System.out.println("Linked list is reversed");
+
     }
+
+
 
     public static void eventDrivenProgram() {
         Scanner sc = new Scanner(System.in);
-        SinglyLinearLinkedList list = new SinglyLinearLinkedList();
+        DoublyLinearLinkedList list = new DoublyLinearLinkedList();
         while (true) {
             System.out.println("\n1.Insert at beginning\n2.Insert at end\n3.Insert between\n4.Remove from beginning\n5.Remove from end\n6.Remove between\n7.Search\n8.Count\n9.Reverse\n10.Display\n11.Exit");
             int inp = sc.nextInt();
@@ -248,6 +274,13 @@ public class SinglyLinearLinkedList {
             }
         }
     }
+
+
+
+
+
+
+
 
 
 }

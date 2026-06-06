@@ -1,49 +1,54 @@
 package Queue;
 
 public class IRD {
-    int items[],left,right;
-    int max=5;
+    int items[], left, right;
+    int max = 5;
+
     public IRD() {
-        items=new int[max];
-        left=-1;
-        right=-1;
+        items = new int[max];
+        left = -1;
+        right = -1;
     }
+
     //  output restricted dequeue
-    public void insertRight(int element){
-        if(right==max-1){
+    public void insertRight(int element) {
+        if (right == max - 1) {
             System.out.println("Queue is overflow...");
-        }else{
-            items[++right]=element;
-            System.out.println(element+" :Element inserted");
+        } else {
+            items[++right] = element;
+            System.out.println(element + " :Element inserted");
         }
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return left == right;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return right == max - 1;
     }
 
-    public int removeRight(){
-        if(left==right){
+    public int removeRight() {
+        if (left == right) {
             System.out.println("Queue is underflow...");
             return -1;
-        }else{
+        } else {
             return items[right--];
         }
     }
-    public int removeLeft(){
-        if(left==right){
+
+    public int removeLeft() {
+        if (left == right) {
             System.out.println("Queue is underflow...");
             return -1;
-        }else{
+        } else {
             return items[++left];
         }
     }
-    public void display(){
-        for(int i=left+1;i<=right;i++){
-            System.out.print(items[i]+" ");
+
+    public void display() {
+        for (int i = left + 1; i <= right; i++) {
+            System.out.print(items[i] + " ");
         }
     }
 }
