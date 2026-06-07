@@ -1,4 +1,5 @@
 import LinkedList.DoublyCircularLinkedList;
+import graph.AdjacencyMatrix;
 import tree.TreeLocal;
 
 public class Main {
@@ -30,6 +31,8 @@ public class Main {
         // doubly circular linked list
 //        DoublyCircularLinkedList.eventDrivenProgram();
         // tree
-        TreeLocal.eventDrivenMethod();
+//        TreeLocal.eventDrivenMethod();
+        // graph
+        AdjacencyMatrix.adjacencyMatrixMethod();
     }
 }
