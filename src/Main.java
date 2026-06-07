@@ -1,6 +1,7 @@
 import LinkedList.DoublyCircularLinkedList;
 import graph.AdjacencyMatrix;
 import graph.AdjacencyMatrixDirected;
+import graph.AdjacencyMatrixDirectedWeightedGraph;
 import tree.TreeLocal;
 
 public class Main {
@@ -36,6 +37,10 @@ public class Main {
         // graph
 //        AdjacencyMatrix.adjacencyMatrixMethod();
         // directed graph
-        AdjacencyMatrixDirected.adjacencyMatrixMethod();
+//        AdjacencyMatrixDirected.adjacencyMatrixMethod();
+        // directed weighted graph
+        AdjacencyMatrixDirectedWeightedGraph.adjacencyMatrixMethod();
+
+
     }
 }
