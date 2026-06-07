@@ -3,7 +3,7 @@ package LinkedList;
 
 import java.util.Scanner;
 
-class Node2{
+class Node2 {
     public int info;
     public Node2 next;
     public Node2 prev;
@@ -12,211 +12,208 @@ class Node2{
 
 public class DoublyCircularLinkedList {
     Node2 list;
-    public void ins_beginning(int info){
-        Node2 p,q;
-        p=list;
-        if(p==null){
-            p=new Node2();
-            p.info=info;
-            p.next=p;
-            p.prev=p;
-            list=p;
-        }else{
-            while (p.next!=list){
-                p=p.next;
+
+    public void ins_beginning(int info) {
+        Node2 p, q;
+        p = list;
+        if (p == null) {
+            p = new Node2();
+            p.info = info;
+            p.next = p;
+            p.prev = p;
+            list = p;
+        } else {
+            while (p.next != list) {
+                p = p.next;
             }
-            q=new Node2();
-            q.info=info;
-            q.next=p.next;
-            q.prev=p;
-            p.next=q;
-            q.next.prev=q;
-            list=q;
+            q = new Node2();
+            q.info = info;
+            q.next = p.next;
+            q.prev = p;
+            p.next = q;
+            q.next.prev = q;
+            list = q;
         }
     }
 
 
-    public void ins_end(int info){
-     Node2 p,q;
-     p=list;
-     if(p==null){
-          p=new Node2();
-          p.next=p;
-          p.prev=p;
-          p.info=info;
-          list=p;
-     }else{
-        while (p.next!=list){
-            p=p.next;
+    public void ins_end(int info) {
+        Node2 p, q;
+        p = list;
+        if (p == null) {
+            p = new Node2();
+            p.next = p;
+            p.prev = p;
+            p.info = info;
+            list = p;
+        } else {
+            while (p.next != list) {
+                p = p.next;
+            }
+            q = new Node2();
+            q.info = info;
+            q.next = p.next;
+            q.prev = p;
+            p.next = q;
+            q.next.prev = q;
         }
-        q=new Node2();
-        q.info=info;
-        q.next=p.next;
-        q.prev=p;
-        p.next=q;
-        q.next.prev=q;
-     }
     }
 
-    public void ins_between(int info,int after){
-        Node2 p,q;
-        p=list;
-        if(p==null|| (p.next==p && p.prev==p)){
+    public void ins_between(int info, int after) {
+        Node2 p, q;
+        p = list;
+        if (p == null || (p.next == p && p.prev == p)) {
             System.out.println("Insert between not possible");
-        }else{
-            while (p.next!=list){
-                if(p.info==after){
-                    q=new Node2();
-                    q.info=info;
-                    q.next=p.next;
-                    q.prev=p;
-                    p.next=q;
-                    q.next.prev=q;
+        } else {
+            while (p.next != list) {
+                if (p.info == after) {
+                    q = new Node2();
+                    q.info = info;
+                    q.next = p.next;
+                    q.prev = p;
+                    p.next = q;
+                    q.next.prev = q;
                     break;
                 }
-                p=p.next;
+                p = p.next;
             }
         }
     }
 
-    public int rem_beginning(){
-        Node2 p,temp;
-        p=list;
-        if(p==null){
+    public int rem_beginning() {
+        Node2 p, temp;
+        p = list;
+        if (p == null) {
             System.out.println("list is empty");
-            return  -1;
-        }else if(p.next==p&&p.prev==p){
-            list=null;
+            return -1;
+        } else if (p.next == p && p.prev == p) {
+            list = null;
             return p.info;
-        }else{
-            while (p.next!=list){
-                p=p.next;
+        } else {
+            while (p.next != list) {
+                p = p.next;
             }
-            temp=p.next;
-            p.next=temp.next;
-            p.next.prev=p;
-            list=temp.next;
-            return  temp.info;
-
-
+            temp = p.next;
+            p.next = temp.next;
+            p.next.prev = p;
+            list = temp.next;
+            return temp.info;
 
 
         }
     }
 
-    public int rem_end(){
-     Node2 p,temp;
-     p=list;
-         if(p==null){
-             System.out.println("list is empty");
-             return  -1;
-         }else if(p.next==p&&p.prev==p){
-             list=null;
-             return p.info;
-
-         }else{
-             while (p.next.next!=list){
-                 p=p.next;
-             }
-             temp=p.next;
-             p.next=temp.next;
-             p.next.prev=p;
-             return temp.info;
-         }
-    }
-
-
-    public int rem_between(int after){
-     Node2 p,temp;
-     p=list;
-     if(p==null){
-         System.out.println("list is emtpy");
-         return  -1;
-     }else if((p.next==p&&p.prev==p)||(p.next.next==p&&p.prev==p.next)){
-         System.out.println("Insert between not possible");
-         return  -1;
-
-     }else{
-
-         while (p.next!=list){
-             if(p.info==after){
-                 temp=p.next;
-                 p.next=temp.next;
-                 p.next.prev=p;
-                 return temp.info;
-             }
-             p=p.next;
-         }
-
-     }
-return  -1;
-    }
-
-
-
-public void search(int srch){
-        Node2 p;
-        p=list;
-        int t=0;
-        if(p==null){
+    public int rem_end() {
+        Node2 p, temp;
+        p = list;
+        if (p == null) {
             System.out.println("list is empty");
-        }else{
-            do{
-                if(p.info==srch){
-                    t=1;
+            return -1;
+        } else if (p.next == p && p.prev == p) {
+            list = null;
+            return p.info;
+
+        } else {
+            while (p.next.next != list) {
+                p = p.next;
+            }
+            temp = p.next;
+            p.next = temp.next;
+            p.next.prev = p;
+            return temp.info;
+        }
+    }
+
+
+    public int rem_between(int after) {
+        Node2 p, temp;
+        p = list;
+        if (p == null) {
+            System.out.println("list is emtpy");
+            return -1;
+        } else if ((p.next == p && p.prev == p) || (p.next.next == p && p.prev == p.next)) {
+            System.out.println("Insert between not possible");
+            return -1;
+
+        } else {
+
+            while (p.next != list) {
+                if (p.info == after) {
+                    temp = p.next;
+                    p.next = temp.next;
+                    p.next.prev = p;
+                    return temp.info;
+                }
+                p = p.next;
+            }
+
+        }
+        return -1;
+    }
+
+
+    public void search(int srch) {
+        Node2 p;
+        p = list;
+        int t = 0;
+        if (p == null) {
+            System.out.println("list is empty");
+        } else {
+            do {
+                if (p.info == srch) {
+                    t = 1;
                     break;
                 }
-                p=p.next;
-            }while (p!=list);
-        if(t==1){
-            System.out.println("Element found");
-        }else{
-            System.out.println("Element not found");
+                p = p.next;
+            } while (p != list);
+            if (t == 1) {
+                System.out.println("Element found");
+            } else {
+                System.out.println("Element not found");
+            }
         }
-        }
-}
-
-public void count(){
- Node2 p;
- p=list;
- int cnt=0;
- if(p==null){
-     System.out.println("No. of node in list : 0");
- }else{
-     do{
-         cnt++;
-
-
-
-
-         p=p.next;
-     }while (p!=list);
- System.out.println("No. of node in list : "+cnt);
- }
-}
-public void display()
-{
-    Node2 p;
-    p=list;
-    if(p==null){
-        System.out.println("list is empty");
-    }else{
-        System.out.print("[");
-        do{
-            System.out.print(p.info+", ");
-            p=p.next;
-        }while (p!=list);
-        System.out.println("]");
-
-
     }
-}
-public  void reverse(){
-Node2 p;
-p=list;
-        if(p==null){
+
+    public void count() {
+        Node2 p;
+        p = list;
+        int cnt = 0;
+        if (p == null) {
+            System.out.println("No. of node in list : 0");
+        } else {
+            do {
+                cnt++;
+
+
+                p = p.next;
+            } while (p != list);
+            System.out.println("No. of node in list : " + cnt);
+        }
+    }
+
+    public void display() {
+        Node2 p;
+        p = list;
+        if (p == null) {
             System.out.println("list is empty");
-        }else {
+        } else {
+            System.out.print("[");
+            do {
+                System.out.print(p.info + ", ");
+                p = p.next;
+            } while (p != list);
+            System.out.println("]");
+
+
+        }
+    }
+
+    public void reverse() {
+        Node2 p;
+        p = list;
+        if (p == null) {
+            System.out.println("list is empty");
+        } else {
             Node2 t1, t2, t3 = list;
             t1 = list;
             do {
@@ -232,8 +229,7 @@ p=list;
         }
 
 
-}
-
+    }
 
 
     public static void eventDrivenProgram() {
@@ -303,35 +299,6 @@ p=list;
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

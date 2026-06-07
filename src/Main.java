@@ -1,7 +1,5 @@
 import LinkedList.DoublyCircularLinkedList;
-import LinkedList.DoublyLinearLinkedList;
-import LinkedList.SinglyCircularLinkedList;
-import LinkedList.SinglyLinearLinkedList;
+import tree.TreeLocal;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,8 +27,9 @@ public class Main {
 //        DoublyLinearLinkedList.eventDrivenProgram();
         // singly circular linked list
 //        SinglyCircularLinkedList.eventDrivenProgram();
-    // doubly circular linked list
-        DoublyCircularLinkedList.eventDrivenProgram();
-
+        // doubly circular linked list
+//        DoublyCircularLinkedList.eventDrivenProgram();
+        // tree
+        TreeLocal.eventDrivenMethod();
     }
 }

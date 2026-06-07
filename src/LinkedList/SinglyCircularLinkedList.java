@@ -2,203 +2,208 @@ package LinkedList;
 
 import java.util.Scanner;
 
-class Node1{
+class Node1 {
     public int info;
     public Node1 next;
 }
+
 public class SinglyCircularLinkedList {
     Node1 list;
-    public void ins_beginning(int info){
-     Node1 p,q;
-     p=list;
-     if(p==null){
-      p=new Node1();
-      p.info=info;
-      p.next=p;
-      list=p;
-     }else{
-         while (p.next!=list){
-             p=p.next;
-         }
-         q=new Node1();
-         q.info=info;
-         q.next=p.next;
-         p.next=q;
-         list=q;
-     }
-    }
-    public void ins_end(int info){
-     Node1 p,q;
-     p=list;
-     if(p==null){
-         p=new Node1();
-         p.info=info;
-         p.next=p;
-         list=p;
-     }else{
-         while (p.next!=list){
-             p=p.next;
-         }
 
-         q=new Node1();
-         q.info=info;
-         q.next=p.next;
-         p.next=q;
-     }
-
-
-    }
-    public void ins_between(int info,int after){
-     Node1 p,q;
-     p=list;
-     if(p==null||p.next==p){
-         System.out.println("Insert between not possible");
-     }else{
-         while (p.next!=list){
-             if(p.info==after){
-                 q=new Node1();
-                 q.info=info;
-                 q.next=p.next;
-                 p.next=q;
-                 break;
-             }
-             p=p.next;
-         }
-     }
-    }
-    public int rem_beginning(){
-        Node1 p,temp;
-        p=list;
-        if(p==null){
-            System.out.println("List is empty");
-            return -1;
-        }else if(p.next==p){
-            list=null;
-            return  p.info;
-        }else {
-            while (p.next!=list){
-                p=p.next;
+    public void ins_beginning(int info) {
+        Node1 p, q;
+        p = list;
+        if (p == null) {
+            p = new Node1();
+            p.info = info;
+            p.next = p;
+            list = p;
+        } else {
+            while (p.next != list) {
+                p = p.next;
             }
-           temp=p.next;
-           p.next=temp.next;
-           list=p.next;
-            return temp.info;
+            q = new Node1();
+            q.info = info;
+            q.next = p.next;
+            p.next = q;
+            list = q;
         }
     }
 
-    public  int rem_end(){
-        Node1 p,temp;
-        p=list;
-        if(p==null){
+    public void ins_end(int info) {
+        Node1 p, q;
+        p = list;
+        if (p == null) {
+            p = new Node1();
+            p.info = info;
+            p.next = p;
+            list = p;
+        } else {
+            while (p.next != list) {
+                p = p.next;
+            }
+
+            q = new Node1();
+            q.info = info;
+            q.next = p.next;
+            p.next = q;
+        }
+
+
+    }
+
+    public void ins_between(int info, int after) {
+        Node1 p, q;
+        p = list;
+        if (p == null || p.next == p) {
+            System.out.println("Insert between not possible");
+        } else {
+            while (p.next != list) {
+                if (p.info == after) {
+                    q = new Node1();
+                    q.info = info;
+                    q.next = p.next;
+                    p.next = q;
+                    break;
+                }
+                p = p.next;
+            }
+        }
+    }
+
+    public int rem_beginning() {
+        Node1 p, temp;
+        p = list;
+        if (p == null) {
             System.out.println("List is empty");
             return -1;
-        }else if(p.next==p){
-            list=null;
+        } else if (p.next == p) {
+            list = null;
             return p.info;
-        }else{
-            while (p.next.next!=list){
-                p=p.next;
+        } else {
+            while (p.next != list) {
+                p = p.next;
             }
-            temp=p.next;
-            p.next=temp.next;
+            temp = p.next;
+            p.next = temp.next;
+            list = p.next;
             return temp.info;
         }
     }
-    public int rem_between(int after){
-        Node1 p,temp;
-        p=list;
-        if(p==null){
+
+    public int rem_end() {
+        Node1 p, temp;
+        p = list;
+        if (p == null) {
+            System.out.println("List is empty");
+            return -1;
+        } else if (p.next == p) {
+            list = null;
+            return p.info;
+        } else {
+            while (p.next.next != list) {
+                p = p.next;
+            }
+            temp = p.next;
+            p.next = temp.next;
+            return temp.info;
+        }
+    }
+
+    public int rem_between(int after) {
+        Node1 p, temp;
+        p = list;
+        if (p == null) {
             System.out.println("list is empty");
             return -1;
-        }else if((p.next==p)||(p.next.next==p)){
+        } else if ((p.next == p) || (p.next.next == p)) {
             System.out.println("Insert between not possible");
-            return  -1;
-        }else {
-            while (p.next!=list){
-                if(p.info==after){
-                    temp=p.next;
-                    p.next=temp.next;
+            return -1;
+        } else {
+            while (p.next != list) {
+                if (p.info == after) {
+                    temp = p.next;
+                    p.next = temp.next;
                     return temp.info;
                 }
-                p=p.next;
+                p = p.next;
             }
         }
         return -1;
     }
 
-    public void search(int srch){
+    public void search(int srch) {
         Node1 p;
-        p=list;
-        int t=0;
-        if(p==null){
+        p = list;
+        int t = 0;
+        if (p == null) {
             System.out.println("list is empty");
-        }else{
-            do{
-                if(p.info==srch){
-                   t=1;
-                   break;
+        } else {
+            do {
+                if (p.info == srch) {
+                    t = 1;
+                    break;
 
                 }
-                p=p.next;
-            }while (p!=list);
-            if(t==1){
+                p = p.next;
+            } while (p != list);
+            if (t == 1) {
                 System.out.println("Element found");
-            }else{
+            } else {
                 System.out.println("Element not found");
             }
         }
     }
 
 
-    public void count(){
+    public void count() {
         Node1 p;
-        int cnt=0;
-        p=list;
-        if(p==null){
-            System.out.println("Number of node is :"+cnt);
-        }else{
-            do{
+        int cnt = 0;
+        p = list;
+        if (p == null) {
+            System.out.println("Number of node is :" + cnt);
+        } else {
+            do {
                 cnt++;
-                p=p.next;
-            }while (p!=list);
-            System.out.println("Number of node is :"+cnt);
+                p = p.next;
+            } while (p != list);
+            System.out.println("Number of node is :" + cnt);
         }
     }
 
 
-    public  void display(){
+    public void display() {
         Node1 p;
-        p=list;
-        if(p==null){
+        p = list;
+        if (p == null) {
             System.out.println("list is empty");
-        }else{
+        } else {
             System.out.print("[");
-        do{
-            System.out.print(p.info+", ");
-            p=p.next;
-        }while (p!=list);
+            do {
+                System.out.print(p.info + ", ");
+                p = p.next;
+            } while (p != list);
             System.out.println("]");
         }
     }
 
-    public  void reverse(){
-        Node1 t1,t2,t3=list;
-        t1=list;
-        if(t3==null){
+    public void reverse() {
+        Node1 t1, t2, t3 = list;
+        t1 = list;
+        if (t3 == null) {
             System.out.println("list is empty");
-        }else{
+        } else {
             do {
-                t2=t1.next;
-                t1.next=t3;
-                t3=t1;
-                t1=t2;
-            }while (t1!=list);
-            list=t3;
-            t1.next=t3;
+                t2 = t1.next;
+                t1.next = t3;
+                t3 = t1;
+                t1 = t2;
+            } while (t1 != list);
+            list = t3;
+            t1.next = t3;
             System.out.println("list reversed");
         }
     }
-
 
 
     public static void eventDrivenProgram() {
@@ -268,10 +273,6 @@ public class SinglyCircularLinkedList {
             }
         }
     }
-
-
-
-
 
 
 }

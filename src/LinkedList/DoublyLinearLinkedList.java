@@ -147,18 +147,18 @@ public class DoublyLinearLinkedList {
     public void search(int srch) {
         Node p;
         p = list;
-        int t=0;
+        int t = 0;
 
         while (p != null) {
             if (p.info == srch) {
-                t=1;
+                t = 1;
                 break;
             }
             p = p.next;
         }
-        if(t==1){
+        if (t == 1) {
             System.out.println("Node is found");
-        }else{
+        } else {
             System.out.println("Node is not found");
         }
     }
@@ -204,7 +204,6 @@ public class DoublyLinearLinkedList {
         System.out.println("Linked list is reversed");
 
     }
-
 
 
     public static void eventDrivenProgram() {
@@ -274,13 +273,6 @@ public class DoublyLinearLinkedList {
             }
         }
     }
-
-
-
-
-
-
-
 
 
 }
