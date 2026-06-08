@@ -43,8 +43,11 @@ public class Main {
 //        ListRepresentationGraph.eventDrivenMethod();
 
         // breadth first search
-        BreadthFirstSearch.breadthFirstSearch();
+//        BreadthFirstSearch.breadthFirstSearch();
 
+
+        // depth first search
+        DepthFirstSearch.depthFirstSearch();
 
 
     }
