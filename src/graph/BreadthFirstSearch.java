@@ -56,7 +56,7 @@ public void bfsMethod(int v){
         if(!visited[v]){
             System.out.print(" "+v);
             visited[v]=true;
-            for(i=1;i<=n;i++){
+            for(i=n;i>=1;i--){
                 if(adj[v][i]==1 && !visited[i]){
                     ++rear;
 //                    System.out.println("reer val: "+rear);
