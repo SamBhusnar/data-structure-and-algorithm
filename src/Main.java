@@ -1,5 +1,6 @@
 import LinkedList.DoublyCircularLinkedList;
 import graph.*;
+import sorting.SimpleExchangeSort;
 import tree.TreeLocal;
 
 public class Main {
@@ -47,8 +48,10 @@ public class Main {
 
 
         // depth first search
-        DepthFirstSearch.depthFirstSearch();
+//        DepthFirstSearch.depthFirstSearch();
 
+        // sorting
+        SimpleExchangeSort.simpleExchangeSort();
 
     }
 }
