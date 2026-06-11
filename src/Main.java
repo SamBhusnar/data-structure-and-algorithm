@@ -1,5 +1,6 @@
 import LinkedList.DoublyCircularLinkedList;
 import graph.*;
+import sorting.BubbleSort;
 import sorting.SimpleExchangeSort;
 import tree.TreeLocal;
 
@@ -51,7 +52,11 @@ public class Main {
 //        DepthFirstSearch.depthFirstSearch();
 
         // sorting
-        SimpleExchangeSort.simpleExchangeSort();
+//        SimpleExchangeSort.simpleExchangeSort();
+        // bubble sort
+        BubbleSort.bubbleSort();
+
+
 
     }
 }
