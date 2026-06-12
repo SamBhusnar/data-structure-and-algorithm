@@ -1,27 +1,27 @@
 package sorting;
 
-import java.util.Scanner;
-
 public class QuickSort {
     public static void quickSort(){
         int x[],j;
         QuickSort qs = new QuickSort();
-        System.out.print("Enter the size of array=");
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        x = new int[n];
-        for(int i=0;i<n;i++){
-            System.out.print("Enter "+i+" element=");
-            x[i] = sc.nextInt();
+//        System.out.print("Enter the size of array=");
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+        x = new int[1_000_0];
+        for(int i=1_000_0-1;i>=0;i--){
+//            System.out.print("Enter "+i+" element=");
+//            x[i] = sc.nextInt();
+            x[1_000_0-(i+1)]=i;// nsorted
+//            x[i]=i;
         }
 
         long start = System.nanoTime();
-        qs.quick(x,0,n-1);
+        qs.quick(x,0,1_000_0-1);
         long finish = System.nanoTime();
         System.out.println("Time taken: " + (finish - start) + " nanoseconds");
-        for (int i=0;i<n;i++){
-            System.out.print(x[i]+" ");
-        }
+//        for (int i=0;i<n;i++){
+//            System.out.print(x[i]+" ");
+//        }
         System.out.println();
 
 
@@ -38,7 +38,8 @@ public class QuickSort {
         int pivot,upper,lower,t;
         lower=lw;
         upper=up;
-        pivot=z[lw];
+        pivot=z[(lw+up)/2];
+//        pivot=z[lw];
         while(upper>lower){
             while (lower<=upper && z[lower]<=pivot){
                 lower++;
@@ -52,8 +53,10 @@ public class QuickSort {
                 z[upper] = t;
             }
         }
-        t=z[lw];
-        z[lw]=z[upper];
+        t=z[(lw+up)/2];
+        z[(lw+up)/2]=z[upper];
+//        t=z[lw];
+//        z[lw]=z[upper];
         z[upper]=t;
         return upper;
 
