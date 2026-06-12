@@ -16,6 +16,7 @@ public class SimpleExchangeSort {
         }
         System.out.println(Arrays.toString(x));
         // simple exchange sort
+        long start = System.nanoTime();
         for (i = 0; i <total; i++) {
 
             for (j = i+1; j <=total-1 ; j++) {
@@ -26,6 +27,8 @@ public class SimpleExchangeSort {
                 }
             }
         }
+        long finish = System.nanoTime();
+        System.out.println("Time taken: " + (finish - start) + " nanoseconds");
         System.out.println(Arrays.toString(x));
 
     }

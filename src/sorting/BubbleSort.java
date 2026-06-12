@@ -9,7 +9,7 @@ public class BubbleSort {
     public static void bubbleSort(){
 
         Scanner sc=new Scanner(System.in);
-     int x[],n,i,j;
+        int x[],n,i,j;
         System.out.print("Enter the size of array=");
         n = sc.nextInt();
         x = new int[n];
