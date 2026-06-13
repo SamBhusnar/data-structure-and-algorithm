@@ -2,6 +2,7 @@ import LinkedList.DoublyCircularLinkedList;
 import graph.*;
 import sorting.BubbleSort;
 import sorting.QuickSort;
+import sorting.SelectionSort;
 import sorting.SimpleExchangeSort;
 import tree.TreeLocal;
 
@@ -55,10 +56,11 @@ public class Main {
         // sorting
 //        SimpleExchangeSort.simpleExchangeSort();
         // bubble sort
-        BubbleSort.bubbleSort();
+//        BubbleSort.bubbleSort();
         // quick sort
 //        QuickSort.quickSort();
-
+        // selection sort
+        SelectionSort.selectionSort();
 
     }
 }
